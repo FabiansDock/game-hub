@@ -35,6 +35,7 @@ const FetchingGames = ({ gameQuery }: Props) => {
       params: {
         genres: gameQuery.genre?.id,
         parent_platforms: gameQuery.platform?.id,
+        search: gameQuery.searchText,
       },
     },
     [gameQuery]

@@ -3,11 +3,15 @@ import logo from "./../assets/logo.webp";
 import Slider from "./Slider";
 import SearchBar from "./SearchBar";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack padding="3">
       <Image src={logo} boxSize="60px" />
-      <SearchBar />
+      <SearchBar onSearch={(searchText) => onSearch(searchText)} />
       <Slider />
     </HStack>
   );

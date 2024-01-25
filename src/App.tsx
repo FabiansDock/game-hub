@@ -9,6 +9,7 @@ import OrderBy from "./components/OrderBy";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  searchText: string;
 }
 
 const App = () => {
@@ -22,7 +23,11 @@ const App = () => {
       }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) =>
+            setGameQuery({ ...gameQuery, searchText: searchText })
+          }
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" width={100}>
@@ -40,7 +45,7 @@ const App = () => {
         <HStack spacing={5} paddingBottom={5}>
           <PlatformsList
             selectedPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
+              setGameQuery({ ...gameQuery, platform: platform })
             }
           />
         </HStack>
