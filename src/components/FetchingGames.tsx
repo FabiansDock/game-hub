@@ -22,10 +22,9 @@ export interface Game {
 
 interface Props {
   gameQuery: GameQuery;
-  orderBy: string;
 }
 
-const FetchingGames = ({ gameQuery, orderBy }: Props) => {
+const FetchingGames = ({ gameQuery }: Props) => {
   const {
     data: games,
     error,
@@ -36,10 +35,9 @@ const FetchingGames = ({ gameQuery, orderBy }: Props) => {
       params: {
         genres: gameQuery.genre?.id,
         parent_platforms: gameQuery.platform?.id,
-        ordering: orderBy,
       },
     },
-    [gameQuery, orderBy]
+    [gameQuery]
   );
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 

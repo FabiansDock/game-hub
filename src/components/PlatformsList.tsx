@@ -25,7 +25,7 @@ const PlatformsList = ({ selectedPlatform }: Props) => {
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
           {selectedPlat?.name || "Platforms"}
         </MenuButton>
-        <MenuList>
+        <MenuList maxH="200px" overflowY="auto">
           {platforms.map((platform) => (
             <MenuItem
               onClick={() => {

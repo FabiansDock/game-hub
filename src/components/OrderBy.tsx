@@ -29,7 +29,11 @@ const OrderBy = ({ orderBy }: Props) => {
         </MenuButton>
         <MenuList>
           {orderingItems.map((item) => (
-            <MenuItem onClick={() => orderBy(item.value)} key={item.key}>
+            <MenuItem
+              onClick={() => orderBy(item.value)}
+              key={item.key}
+              value={item.key}
+            >
               {item.value}
             </MenuItem>
           ))}

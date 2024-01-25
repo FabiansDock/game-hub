@@ -13,7 +13,7 @@ export interface GameQuery {
 
 const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  const [orderBy, setOrderBy] = useState("");
+
   return (
     <Grid
       templateAreas={{
@@ -43,9 +43,8 @@ const App = () => {
               setGameQuery({ ...gameQuery, platform })
             }
           />
-          <OrderBy orderBy={(item) => setOrderBy(item)} />
         </HStack>
-        <FetchingGames gameQuery={gameQuery} orderBy={orderBy} />
+        <FetchingGames gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );
