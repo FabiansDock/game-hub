@@ -56,8 +56,8 @@ const FetchingGames = ({ gameQuery }: Props) => {
       >
         {isLoading &&
           skeletons.map((s) => (
-            <GameCardStyles>
-              <GamingCardSkeletons key={s} />
+            <GameCardStyles key={s}>
+              <GamingCardSkeletons />
             </GameCardStyles>
           ))}
         {!isLoading &&

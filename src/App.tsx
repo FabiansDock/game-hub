@@ -1,10 +1,10 @@
-import { Grid, GridItem, HStack, Show, Text } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import FetchingGames, { Platform } from "./components/FetchingGames";
 import GenreList, { Genre } from "./components/FetchingGenreList";
 import { useState } from "react";
 import PlatformsList from "./components/PlatformsList";
-import OrderBy from "./components/OrderBy";
+import DynamicHeading from "./components/DyanmicHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -39,9 +39,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main" padding={20}>
-        <Text fontSize={50} fontWeight="bold">
-          New and trending
-        </Text>
+        <DynamicHeading gameQuery={gameQuery} />
         <HStack spacing={5} paddingBottom={5}>
           <PlatformsList
             selectedPlatform={(platform) =>
