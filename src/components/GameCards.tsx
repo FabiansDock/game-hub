@@ -9,6 +9,7 @@ import {
   Image,
   Stack,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { Game } from "./FetchingGames";
 import PlatformIcons from "./PlatformIcons";
@@ -20,6 +21,7 @@ interface Props {
 }
 
 const GameCards = ({ game }: Props) => {
+  const toast = useToast();
   return (
     <Card maxW="md">
       <Image src={getImageUrls(game.background_image)} />
@@ -38,7 +40,19 @@ const GameCards = ({ game }: Props) => {
           <Button variant="solid" colorScheme="blue">
             Buy now
           </Button>
-          <Button variant="ghost" colorScheme="blue">
+          <Button
+            variant="ghost"
+            colorScheme="blue"
+            onClick={() =>
+              toast({
+                title: "Account verification successfull !",
+                description: "Item added to cart successfully.",
+                status: "success",
+                duration: 7000,
+                isClosable: true,
+              })
+            }
+          >
             Add to cart
           </Button>
         </VStack>
